@@ -1,7 +1,7 @@
 {
-  "name": "mon-bolt-sans-defaut",
+  "name": "aila-boulon",
   "private": true,
-  "version": "2.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
