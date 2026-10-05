@@ -1,4 +1,5 @@
 const API_URL = "https://openrouter.ai/api/v1/chat/completions";
+const MA_CLE = "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";
 
 export const MODELES = [
   { id: "openai/gpt-4o-mini", nom: "GPT-4o Mini", gratuit: true },
@@ -9,9 +10,8 @@ export const MODELES = [
   { id: "anthropic/claude-3-5-sonnet-20241022", nom: "Claude 3.5 Sonnet", gratuit: false },
 ];
 
-export async function genererCode(prompt, apiKey, modeleId) {
+export async function genererCode(prompt, modeleId) {
   const systemPrompt = `Tu es un développeur expert. Génère du code COMPLET, PROPRE et PRÊT À L'EMPLOI.
-
 Réponds UNIQUEMENT avec le code HTML complet, sans explication.
 Structure obligatoire :
 - <!DOCTYPE html>
@@ -20,14 +20,13 @@ Structure obligatoire :
 - <body> avec le contenu
 - <script> avant </body> pour le JavaScript
 - Fermeture complète de tous les éléments
-
 Le code doit être autonome, sans dépendance externe, responsive, moderne et fonctionnel.`;
 
   const reponse = await fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${apiKey}`,
+      "Authorization": `Bearer ${MA_CLE}`,
       "HTTP-Referer": window.location.origin,
       "X-Title": "Mon Bolt Sans Défaut"
     },
