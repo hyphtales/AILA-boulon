@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mon Bolt Sans Défaut</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AILA Boulon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h1>AILA Boulon</h1>
+      <span class="badge">En ligne</span>
+    </div>
+    <div class="top-controls">
+      <select>
+        <option>Projet 1</option>
+        <option>Projet 2</option>
+      </select>
+      <button class="btn-primary">Nouveau</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="panel panel-left">
+      <h2>Édition</h2>
+      <textarea placeholder="Écris ton code ici..."></textarea>
+      <button class="btn-primary">Exécuter</button>
+      
+      <div class="history">
+        <h3>Historique</h3>
+        <div class="history-item">Premier essai</div>
+        <div class="history-item">Modification</div>
+      </div>
+    </div>
+
+    <div class="panel panel-right">
+      <div class="preview-toolbar">
+        <h3>Aperçu</h3>
+      </div>
+      <iframe></iframe>
+    </div>
+  </main>
+
+</body>
 </html>
