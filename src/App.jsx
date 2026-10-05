@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { genererCode, MODELES } from './services/ai';
 
 // On utilise la clé directement dans ai.js, plus besoin de la chercher ici
