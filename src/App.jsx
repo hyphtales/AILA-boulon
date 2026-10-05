@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { genererCode, MODELES } from './services/ai';
 
-const CLE_API = import.meta.env.VITE_OPENROUTER_KEY;
-
+// On utilise la clé directement dans ai.js, plus besoin de la chercher ici
 export default function App() {
   const [demande, setDemande] = useState("");
   const [code, setCode] = useState("");
@@ -30,13 +29,12 @@ export default function App() {
 
   async function creer() {
     if (!demande.trim()) return alert("Écris ce que tu veux créer !");
-    if (!CLE_API) return alert("Ajoute ta clé dans .env.local");
-
+    
     setChargement(true);
     setStatut("Génération du code...");
-
+    
     try {
-      const codeGenere = await genererCode(demande, CLE_API, modeleSelectionne);
+      const codeGenere = await genererCode(demande, modeleSelectionne);
       setCode(codeGenere);
       ajouterHistorique(demande.slice(0, 40) + "...", codeGenere);
       setStatut("✅ Prêt !");
@@ -44,7 +42,7 @@ export default function App() {
       setStatut("❌ " + err.message);
       alert("Erreur : " + err.message);
     }
-
+    
     setChargement(false);
   }
 
@@ -115,7 +113,7 @@ export default function App() {
             {chargement ? "⏳ Génération en cours..." : "🚀 Générer le code"}
           </button>
           <div className="status">{statut}</div>
-
+          
           {historique.length > 0 && (
             <div className="history">
               <h4>📁 Projets récents</h4>
@@ -150,7 +148,7 @@ export default function App() {
               </p>
             )}
           </div>
-
+          
           {code && (
             <div className="code-container">
               <div className="code-header">
